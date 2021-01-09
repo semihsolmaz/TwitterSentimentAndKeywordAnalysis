@@ -2,4 +2,5 @@
 <ul>
 <li>Gets tweets using tweepy<li>
 <li>Calculates sentment scrore for tweets<li>
-<li>extracts related keywords<li>
+<li>Extracts related keywords<li>
+<ul>
