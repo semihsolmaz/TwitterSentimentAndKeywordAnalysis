@@ -1,6 +1,6 @@
 <h1>Twitter Sentiment Anlysis an Keyword Exraction for crowd RE<h1>
 <ul>
-<li>Gets tweets using tweepy<li>
-<li>Calculates sentment scrore for tweets<li>
-<li>Extracts related keywords<li>
+<li>Gets tweets using tweepy
+<li>Calculates sentment scrore for tweets
+<li>Extracts related keywords
 <ul>
