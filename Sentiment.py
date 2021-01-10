@@ -23,3 +23,5 @@ def exportCSV(tweetList):
     for tweet in tweetList:
         csvWriter.writerow(["id", "content", "tweetDate"])
         csvWriter.writerows(tweetList)
+
+    return exportCSV(tweetList)
