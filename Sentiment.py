@@ -1,9 +1,7 @@
-import csv
+import pandas as pd
 from textblob import TextBlob
 import tweepy
-
 import analyzeKeywords
-
 
 tweetList = []
 
@@ -24,18 +22,19 @@ def setSentiment(tweetList):
 
 
 def exportCSV(tweetList):
-    csvFile = open('tweetList.csv', 'a')
-
-    # create csv writer object
-    csvWriter = csv.writer(csvFile)
+    idArr = []
+    contentArr = []
+    dateArr = []
+    sentimentArr = []
 
     for tweet in tweetList:
-        csvWriter.writerow(["id", "content", "tweetDate", "sentimentScore"])
-        csvWriter.writerows(tweetList)
+        idArr.append(tweet.id)
+        print(tweet.content)
+        contentArr.append(tweet.content)
+        dateArr.append(tweet.date)
+        sentimentArr.append(tweet.sentimentScore)
 
-    csvFile.close()
+    dict = {"content": contentArr, "date":dateArr, "sentimentScore": sentimentArr}
 
-    return tweetList
-
-result = get_tweet_sentiment("super nice")
-print(result)
+    frame = pd.DataFrame(dict)
+    frame.to_csv("sentiment.csv")
