@@ -26,16 +26,16 @@ def clean_tweet(tweet):
     return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
 
 
-auth = tweepy.OAuthHandler('dT8QrbTNl2Iv5RZ2vqqsSB4Ra', 'tpUB3N5MkrQ7tUwYSWpyQI90ytuz8WHyJVoCbZ5o2FlpUFRtEk')
-auth.set_access_token('2483903256-UHDqrWSYTP28TOc5kzQNL3RH3xXJHTiUG3Y4sg1', 'tPSEJnQOwBwr4H1wK2UPZRqMWUAHANqaUrJLKYNjbemjI')
-
-api = tweepy.API(auth)
-
-fetched_tweets = api.search(q='Qatar airways', count=20)
+# auth = tweepy.OAuthHandler('dT8QrbTNl2Iv5RZ2vqqsSB4Ra', 'tpUB3N5MkrQ7tUwYSWpyQI90ytuz8WHyJVoCbZ5o2FlpUFRtEk')
+# auth.set_access_token('2483903256-UHDqrWSYTP28TOc5kzQNL3RH3xXJHTiUG3Y4sg1', 'tPSEJnQOwBwr4H1wK2UPZRqMWUAHANqaUrJLKYNjbemjI')
+#
+# api = tweepy.API(auth)
+#
+# fetched_tweets = api.search(q='Qatar airways', count=200)
 def get_most_used_words(fetched_tweets, word_type):
     tweet_words_list = []
     for tweet in fetched_tweets:
-        tokens = nltk.word_tokenize(clean_tweet(tweet.text))
+        tokens = nltk.word_tokenize(clean_tweet(tweet))
         text = nltk.Text(tokens)
         tags = nltk.pos_tag(text)
         filtered = filter(lambda tag: tag[1] == word_type, tags)
@@ -46,7 +46,7 @@ def get_most_used_words(fetched_tweets, word_type):
     return counts
 
 
-dist = get_most_used_words(fetched_tweets, 'NN')
+# dist = get_most_used_words(fetched_tweets, 'NN')
 
 
 def get_words_by_sentiment(tweets, sentiment):
@@ -78,16 +78,20 @@ def get_words_by_sentiment(tweets, sentiment):
         print('invalid sentiment')
 
 
-neg_words = get_words_by_sentiment(fetched_tweets, 'pos')
+# neg_words = get_words_by_sentiment(fetched_tweets, 'pos')
+
+# tweet_list = []
+# for tweet in fetched_tweets:
+#     tweet_list.append(tweet.text)
 
 # r = contain_related_word('we have a freeze')
-# print(r)
+# # print(r)
 # arr = np.array(tweet_list)
-tweets = pd.read_csv('test.csv')
-print(tweets['content'])
-word_filter = tweets['content'].apply(contain_related_word)
-print(word_filter)
-print(tweets[word_filter])
+# tweets = pd.read_csv('test.csv')
+# print(tweets['content'])
+# word_filter = tweets['content'].apply(contain_related_word)
+# print(word_filter)
+# print(tweets[word_filter])
 # df = pd.DataFrame(arr, columns=['content'])
 #
 # df.to_csv('sample.csv')
