@@ -5,6 +5,7 @@ import tweepy
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from collections import Counter
+import matplotlib.pyplot as plt
 
 
 
@@ -85,6 +86,23 @@ def get_words_by_sentiment(tweets, sentiment):
     else:
         print('invalid sentiment')
 
+
+def plot_most_used_words(tweets):
+    word_count = get_most_used_words(tweets)
+
+    # words in count
+    word_counts = pd.DataFrame.from_dict(word_count,orient='index',columns=['counts']).sort_values('counts', ascending=False).head(20)
+    count_graph = word_counts['counts'].plot.bar(y='counts', rot=90)
+    plt.show()
+
+
+def plot_related_word_count(tweets):
+    word_count = get_most_used_words(tweets)
+    word_counts = pd.DataFrame.from_dict(word_count,orient='index',columns=['counts']).sort_values('counts', ascending=False)
+    word_counts['words'] = word_counts.index
+    word_counts.index = range(1, len(word_counts.index) + 1)
+    word_counts = word_counts[word_counts['words'].isin(['first', 'service', 'bug', 'buggy', 'freeze', 'slow', 'crash'])]
+    plt.show()
 
 # neg_words = get_words_by_sentiment(fetched_tweets, 'pos')
 
