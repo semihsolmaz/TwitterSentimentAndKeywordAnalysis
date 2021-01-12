@@ -32,7 +32,7 @@ def clean_tweet(tweet):
 # api = tweepy.API(auth)
 #
 # fetched_tweets = api.search(q='Qatar airways', count=200)
-def get_most_used_words(fetched_tweets, word_type):
+def get_most_used_words_by_type(fetched_tweets, word_type):
     tweet_words_list = []
     for tweet in fetched_tweets:
         tokens = nltk.word_tokenize(clean_tweet(tweet))
@@ -47,7 +47,15 @@ def get_most_used_words(fetched_tweets, word_type):
 
 
 # dist = get_most_used_words(fetched_tweets, 'NN')
-
+def get_most_used_words(fetched_tweets):
+    tweet_words_list = []
+    for tweet in fetched_tweets:
+        tokens = nltk.word_tokenize(clean_tweet(tweet))
+        text = nltk.Text(tokens)
+        for word in tokens:
+            tweet_words_list.append(word)
+    counts = Counter(tweet_words_list)
+    return counts
 
 def get_words_by_sentiment(tweets, sentiment):
     tweet_words_list = []
