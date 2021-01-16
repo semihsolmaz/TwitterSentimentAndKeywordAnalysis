@@ -32,3 +32,4 @@ def getTweets(fetchedTweets):
 
 
 result = getTweets(fetched_tweets)
+print(result[0].content)
