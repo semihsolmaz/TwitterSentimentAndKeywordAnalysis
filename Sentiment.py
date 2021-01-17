@@ -21,15 +21,14 @@ def setSentiment(tweetList):
         tweet.sentimentScore = get_tweet_sentiment(tweet.content)
 
 
-def exportCSV(tweetList):
+def exportCSV(tweet_list, file_name):
     idArr = []
     contentArr = []
     dateArr = []
     sentimentArr = []
 
-    for tweet in tweetList:
+    for tweet in tweet_list:
         idArr.append(tweet.id)
-        print(tweet.content)
         contentArr.append(tweet.content)
         dateArr.append(tweet.date)
         sentimentArr.append(tweet.sentimentScore)
@@ -37,4 +36,4 @@ def exportCSV(tweetList):
     dict = {"content": contentArr, "date":dateArr, "sentimentScore": sentimentArr}
 
     frame = pd.DataFrame(dict)
-    frame.to_csv("sentiment.csv")
+    frame.to_csv(file_name + "sentiments.csv")
