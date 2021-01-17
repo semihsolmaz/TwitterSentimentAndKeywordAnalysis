@@ -6,22 +6,14 @@
 # kaç data alınacak, hangi data alınacak
 # uygulama sorsun hangi konu: datasize
 
-import tweepy
-import tweepy.streaming
 
-
-#class StdOutListener(l):
- #   pass
-
-
-#l = StdOutListener()
-auth = tweepy.OAuthHandler("DhfQ6430r0LgnBqHgsSXlwSbc", "HBQ65IK9q8bU6nOwDgRoMESo555xQSbhPWLCWUM7z8K7q2FVlw")
-auth.set_access_token("353853669-3Bs4DShz2k7XKdH66WJMSXymnSmBR4GwAR6IYekE", "VcaGuVxdslZ1JJTdiKRNhKmCw0ako73AOPET16YmN9OtD")
-api = tweepy.API(auth)
-#stream = tweepy.Stream(auth, l)
-#stream.filter(languages=["en"])
-
-fetched_tweets = api.search(q='Spotify', count=10, lang = 'en')
+# import tweepy
+#
+# auth = tweepy.OAuthHandler("DhfQ6430r0LgnBqHgsSXlwSbc", "HBQ65IK9q8bU6nOwDgRoMESo555xQSbhPWLCWUM7z8K7q2FVlw")
+# auth.set_access_token("353853669-3Bs4DShz2k7XKdH66WJMSXymnSmBR4GwAR6IYekE", "VcaGuVxdslZ1JJTdiKRNhKmCw0ako73AOPET16YmN9OtD")
+# api = tweepy.API(auth)
+#
+# fetched_tweets = api.search(q='Spotify', count=10)
 
 
 class tw:
@@ -32,6 +24,7 @@ class tw:
         self.date = tweetDate
         self.sentimentScore = None
 
+
 def getTweets(fetchedTweets):
     tweetArray = []
     id = 1
@@ -41,4 +34,7 @@ def getTweets(fetchedTweets):
     return tweetArray
 
 
-result = getTweets(fetched_tweets)
+  
+
+
+
