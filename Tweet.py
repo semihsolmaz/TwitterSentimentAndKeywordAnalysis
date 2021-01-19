@@ -6,6 +6,7 @@
 # kaç data alınacak, hangi data alınacak
 # uygulama sorsun hangi konu: datasize
 
+
 # import tweepy
 #
 # auth = tweepy.OAuthHandler("DhfQ6430r0LgnBqHgsSXlwSbc", "HBQ65IK9q8bU6nOwDgRoMESo555xQSbhPWLCWUM7z8K7q2FVlw")
@@ -16,6 +17,7 @@
 
 
 class tw:
+
     def __init__(self,id, content, tweetDate):
         self.id = id
         self.content = content
@@ -30,4 +32,9 @@ def getTweets(fetchedTweets):
         tweet = tw(id, line.text, line.created_at)
         tweetArray.append(tweet)
     return tweetArray
+
+
+  
+
+
 
