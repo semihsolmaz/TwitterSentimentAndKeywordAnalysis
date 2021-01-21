@@ -1,9 +1,9 @@
 import pandas as pd
 from textblob import TextBlob
-import tweepy
 import analyzeKeywords
 
 tweetList = []
+
 
 def get_tweet_sentiment(tweet):
     '''

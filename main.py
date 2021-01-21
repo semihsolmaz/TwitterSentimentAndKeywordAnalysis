@@ -1,7 +1,6 @@
 import pandas as pd
-import numpy as np
 import analyzeKeywords as an
-import matplotlib.pyplot as plt
+
 
 import tweepy
 import Tweet
@@ -14,7 +13,7 @@ auth = tweepy.OAuthHandler("DhfQ6430r0LgnBqHgsSXlwSbc", "HBQ65IK9q8bU6nOwDgRoMES
 auth.set_access_token("353853669-3Bs4DShz2k7XKdH66WJMSXymnSmBR4GwAR6IYekE", "VcaGuVxdslZ1JJTdiKRNhKmCw0ako73AOPET16YmN9OtD")
 api = tweepy.API(auth)
 
-topic = input('Enter topic for analysis: (e.g. microdoft word)\n')
+topic = input('Enter topic for analysis: (e.g. microsoft word)\n')
 keys = topic.split(' ')
 file_name = ''
 for i in keys:
@@ -40,6 +39,12 @@ tweets = df['content'].tolist()
 an.plot_most_used_words(tweets, file_name)
 an.plot_sentiments(df, file_name)
 
+an.create_wordcloud(df, file_name)
+
+an.tweets_with_keywords(df, file_name)
+
+samp = 'I have bug in me'
+print(an.contain_related_word(samp))
 
 # # words in a list
 # word_counts['words'] = word_counts.index
