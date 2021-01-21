@@ -44,7 +44,6 @@ an.create_wordcloud(df, file_name)
 an.tweets_with_keywords(df, file_name)
 
 samp = 'I have bug in me'
-print(an.contain_related_word(samp))
 
 # # words in a list
 # word_counts['words'] = word_counts.index

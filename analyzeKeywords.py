@@ -19,23 +19,8 @@ def contain_related_word(text):
 
 
 def tweets_with_keywords(df, file_name):
-    # r = contain_related_word('we have a freeze')
-    # # print(r)
-    # arr = np.array(tweet_list)
-    # tweets = pd.read_csv('test.csv')
-    # print(tweets['content'])
-    # word_filter = tweets['content'].apply(contain_related_word)
-    # print(word_filter)
-    # print(tweets[word_filter])
-    # df = pd.DataFrame(arr, columns=['content'])
-    #
-    # df.to_csv('sample.csv')
-
     mask = df['content'].apply(contain_related_word)
-    print(type(df['content'][0]))
     tweets_with_keys = df[mask]
-    # print(mask)
-    print(tweets_with_keys)
     tweets_with_keys.to_csv(file_name + 'tweets_with_keywords.csv')
 
 
