@@ -7,6 +7,7 @@
 # uygulama sorsun hangi konu: datasize
 
 
+# Tweet to generate tweet objects
 class tw:
 
     def __init__(self,id, content, tweetDate):
@@ -16,6 +17,7 @@ class tw:
         self.sentimentScore = None
 
 
+# Converts tweepy tweet object to native tweet object
 def getTweets(fetchedTweets):
     tweetArray = []
     id = 1
